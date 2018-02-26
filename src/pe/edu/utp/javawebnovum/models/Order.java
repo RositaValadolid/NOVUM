@@ -11,19 +11,21 @@ public class Order {
     private Date start_time;
     private String location;
     private float total_price;
+    private User user;
 
     public Order() {
     }
 
-    public Order(int id, int userid, int thematicid, int packageid, Date dateorder, Date starttime, String location, float totalprice) {
-        this.setId(id);
-        this.setUser_id(userid);
-        this.setThematic_id(thematicid);
-        this.setPackage_id(packageid);
-        this.setDate_order(dateorder);
-        this.setStart_time(starttime);
-        this.setLocation(location);
-        this.setTotal_price(totalprice);
+    public Order(int id, int user_id, int thematic_id, User user) {
+        this.id = id;
+        this.user_id = user_id;
+        this.thematic_id = thematic_id;
+        this.package_id = package_id;
+        this.date_order = date_order;
+        this.start_time = start_time;
+        this.location = location;
+        this.total_price = total_price;
+        this.user = user;
     }
 
 
@@ -96,6 +98,15 @@ public class Order {
 
     public Order setTotal_price(float total_price) {
         this.total_price = total_price;
+        return this;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Order setUser(User user) {
+        this.user = user;
         return this;
     }
 }

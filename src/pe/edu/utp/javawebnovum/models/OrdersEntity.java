@@ -9,8 +9,8 @@ import java.util.List;
 
 public class OrdersEntity extends BaseEntity{
     private static String DEFAULT_SQL = "SELECT * FROM orders";
-    private List<Order> findByCriteria(String sql, OrdersEntity regionsEntity) {
-        List<Order> countries = new ArrayList<>();
+    private List<Order> findByCriteria(String sql, UsersEntity usersEntity) {
+        List<Order> orders = new ArrayList<>();
         if(getConnection() != null) {
             try {
                 ResultSet resultSet = getConnection()
@@ -18,15 +18,16 @@ public class OrdersEntity extends BaseEntity{
                         .executeQuery(sql);
                 while(resultSet.next()) {
                     Order country = new Order(
-                            //resultSet.getString("country_id"),
-                            //resultSet.getString("country_name"),
-                            //regionsEntity
-                                    //.findById(resultSet
-                                            //.getInt("order_id"))
+                            resultSet.getInt("id"),
+                            resultSet.getInt("user_id"),
+                            resultSet.getInt("user_id"),
+                            usersEntity
+                                    .findById(resultSet
+                                            .getInt("id"))
                     );
-                    countries.add(country);
+                    orders.add(country);
                 }
-                return countries;
+                return orders;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -35,7 +36,7 @@ public class OrdersEntity extends BaseEntity{
 
     }
 
-    public List<Order> findAll(OrdersEntity regionsEntity) {
-        return findByCriteria(DEFAULT_SQL, regionsEntity);
+    public List<Order> findAll(UsersEntity usersEntity) {
+        return findByCriteria(DEFAULT_SQL, usersEntity);
     }
 }
