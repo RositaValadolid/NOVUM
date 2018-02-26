@@ -1,7 +1,5 @@
 package pe.edu.utp.javawebnovum.models;
 
-import com.oracle.wls.shaded.org.apache.xpath.operations.Or;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -40,3 +38,4 @@ public class OrdersEntity extends BaseEntity{
         return findByCriteria(DEFAULT_SQL, usersEntity);
     }
 }
+
