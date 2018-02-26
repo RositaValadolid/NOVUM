@@ -2,7 +2,7 @@ package pe.edu.utp.javawebnovum.models;
 
 public class User {
     private int id;
-    private int password;
+    private String password;
     private String name;
     private String last_name;
     private String address;
@@ -13,7 +13,7 @@ public class User {
     public User() {
     }
 
-    public User(int id, int password, String name, String last_name, String address, String dni, String rol, String email) {
+    public User(int id, String password, String name, String last_name, String address, String dni, String rol, String email) {
         this.id = id;
         this.password = password;
         this.name = name;
@@ -33,11 +33,11 @@ public class User {
         return this;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public User setPassword(int password) {
+    public User setPassword(String password) {
         this.password = password;
         return this;
     }

@@ -23,43 +23,43 @@ public class UsersBean implements Serializable {
         return service.findAllUsers();
     }
 */
-    public User getRegion() {
+    public User getUser() {
         return user;
     }
 
-    public void setRegion(User region) {
-        this.user = region;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getName() {
-        return this.getRegion().getName();
+    public String getPassword() {
+        return this.getUser().getPassword();
     }
 
-    public void setName(String name){
-        this.getRegion().setName(name);
+    public void setPassword(String password){
+        this.getUser().setPassword(password);
     }
 
-    public String newRegion(){
-        this.setRegion(new User());
+    public String newUser(){
+        this.setUser(new User());
         return "success";
     }
 
-    public String createRegion(){
-        //service.createUser(this.getName());
+    public String createUser(){
+        service.createUser(this.getPassword());
         return "success";
     }
 
-    public String editRegion(User region){
-        this.setRegion(region);
+    public String editUser(User region){
+        this.setUser(user);
         return "success";
     }
 
-    public String updateRegion(){
-        //service.updateUser(this.getRegion());
+    public String updateUser(){
+        //service.updateUser(this.getUser());
         return "success";
     }
-    public String deleteRegion(User region){
-        //service.deleteUser(region.getId());
+    public String deleteUser(User user){
+        //service.deleteUser(user.getId());
         return "success";
     }
 }

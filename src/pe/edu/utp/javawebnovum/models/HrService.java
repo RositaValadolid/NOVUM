@@ -54,9 +54,14 @@ public class HrService {
                 getOrdersEntity().findAll() : null;
     }*/
 
-    public User findRegionById(int id) {
+    public User findOrderById(int id) {
         return getUsersEntity() != null ?
                 getUsersEntity().findById(id) : null;
     }
+
+    /*public User createUser(String password) {
+        return getUsersEntity() != null ?
+                getUsersEntity().create(password) : null;
+    }*/
 
 }

@@ -18,7 +18,7 @@ public class UsersEntity extends BaseEntity{
                 while (resultSet.next()) {
                     User user = new User()
                             .setId(resultSet.getInt("id"))
-                            .setPassword(resultSet.getInt("password"))
+                            .setPassword(resultSet.getString("password"))
                             .setName(resultSet.getString("name"))
                             .setLast_name(resultSet.getString("last_name"))
                             .setAddress(resultSet.getString("address"))
@@ -42,13 +42,13 @@ public class UsersEntity extends BaseEntity{
 
     public User findById(int id) {
         List<User> users = findByCriteria(DEFAULT_SQL +
-                " WHERE region_id = "+ String.valueOf(id));
+                " WHERE id = "+ String.valueOf(id));
         return (users != null && !users.isEmpty()? users.get(0) : null);
     }
 
     public User findByName(String name) {
         List<User> users = findByCriteria(DEFAULT_SQL +
-                " WHERE region_name = '" + name + "'");
+                " WHERE name = '" + name + "'");
         return (users != null && !users.isEmpty() ? users.get(0) : null);
     }
 
@@ -86,7 +86,7 @@ public class UsersEntity extends BaseEntity{
         return 0;
     }
 
-    /*public User create(int password, String name, String last_name, String address, String dni, String rol, String email ) {
+    public User create(String password, String name, String last_name, String address, String dni, String rol, String email ) {
         if(findByName(name) == null) {
             if(getConnection() != null) {
                 String sql = "INSERT INTO users(id, password, name, last_name, address, dni, rol, email) VALUES(" +
@@ -94,20 +94,20 @@ public class UsersEntity extends BaseEntity{
                         name + "')";
                 int results = updateByCriteria(sql);
                 if(results > 0) {
-                    User user = new User(getMaxId(), name);
-                    return user;
+                    //User user = new User(getMaxId(), password);
+                    //return user;
                 }
             }
         }
         return null;
-    }*/
+    }
 
     public boolean update(User user) {
         if(findByName(user.getName()) != null) return false;
         return updateByCriteria(
-                "UPDATE users SET region_name = '" +
+                "UPDATE users SET name = '" +
                         user.getName() + "'" +
-                        " WHERE region_id = " +
+                        " WHERE id = " +
                         String.valueOf(user.getId())) > 0;
     }
 }
