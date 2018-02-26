@@ -1,9 +1,101 @@
 package pe.edu.utp.javawebnovum.models;
 
+import java.util.Date;
+
 public class Order {
-    private int order_id;
+    private int id;
     private int user_id;
     private int thematic_id;
     private int package_id;
+    private Date date_order;
+    private Date start_time;
+    private String location;
+    private float total_price;
 
+    public Order() {
+    }
+
+    public Order(int id, int userid, int thematicid, int packageid, Date dateorder, Date starttime, String location, float totalprice) {
+        this.setId(id);
+        this.setUser_id(userid);
+        this.setThematic_id(thematicid);
+        this.setPackage_id(packageid);
+        this.setDate_order(dateorder);
+        this.setStart_time(starttime);
+        this.setLocation(location);
+        this.setTotal_price(totalprice);
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public Order setId(int id) {
+        this.id = id;
+        return this;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public Order setUser_id(int user_id) {
+        this.user_id = user_id;
+        return this;
+    }
+
+    public int getThematic_id() {
+        return thematic_id;
+    }
+
+    public Order setThematic_id(int thematic_id) {
+        this.thematic_id = thematic_id;
+        return this;
+    }
+
+    public int getPackage_id() {
+        return package_id;
+    }
+
+    public Order setPackage_id(int package_id) {
+        this.package_id = package_id;
+        return this;
+    }
+
+    public Date getDate_order() {
+        return date_order;
+    }
+
+    public Order setDate_order(Date date_order) {
+        this.date_order = date_order;
+        return this;
+    }
+
+    public Date getStart_time() {
+        return start_time;
+    }
+
+    public Order setStart_time(Date start_time) {
+        this.start_time = start_time;
+        return this;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public Order setLocation(String location) {
+        this.location = location;
+        return this;
+    }
+
+    public float getTotal_price() {
+        return total_price;
+    }
+
+    public Order setTotal_price(float total_price) {
+        this.total_price = total_price;
+        return this;
+    }
 }
