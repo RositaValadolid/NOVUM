@@ -44,10 +44,10 @@ public class UsersBean implements Serializable {
         return "success";
     }
 
-    public String createUser(){
+    /*public String createUser(){
         service.createUser(this.getPassword());
         return "success";
-    }
+    }*/
 
     public String editUser(User region){
         this.setUser(user);
